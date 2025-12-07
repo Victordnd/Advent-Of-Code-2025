@@ -1,32 +1,31 @@
 # First day part one of my advent of code challenge#
-def dial(ponteiroAtual, incremento):
+def dial(ponteiro_Atual, incremento):
          limite = 100
-         novoValor = ponteiroAtual + incremento
-         valorFinal = novoValor % limite
-         return valorFinal
+         novo_Valor = ponteiro_Atual + incremento
+         valor_Final = novo_Valor % limite
+         return valor_Final
     
     
-ponteiroInicial = 50;
-incremento = 0 ; 
-resultado = 0;
+ponteiro_Inicial = 50
+resultado = 0
 with open(r'Day1\input.txt', 'r', encoding='utf-8') as arquivo:
-    combinacoes = arquivo.readlines();
+    for linha in arquivo:
+        linha = linha.strip('\n')
 
-for linha in combinacoes:
-    linha = linha.strip('\n')
-    primeiraLetra = linha[0]
-    digito = int(linha[1:])
-    if primeiraLetra == "L":
-       incremento = digito * -1
-       ponteiroInicial = dial(ponteiroInicial,incremento)
-       if ponteiroInicial == 0:
-            resultado +=1
-    else:
-        incremento = digito
-        ponteiroInicial = dial(ponteiroInicial,incremento)
-        if ponteiroInicial == 0:
-            resultado +=1
-            
+        
+        primeira_Letra = linha[0]
+        digito = int(linha[1:])
+        
+        if primeira_Letra == "L":
+             incremento = -digito 
+        else:
+            incremento = digito
+
+        ponteiro_Inicial = dial(ponteiro_Inicial,incremento)
+
+        if ponteiro_Inicial == 0:
+            resultado +=1 
+                      
 print(resultado)      
 print("===Part one ===")      
     
