@@ -1,3 +1,4 @@
+# Third day of my advent of code challenge#
 def  max_voltage_da_bateria(bateria: str) -> int:
     bateria = bateria.strip()
     digito = [int(ch) for ch in bateria]
